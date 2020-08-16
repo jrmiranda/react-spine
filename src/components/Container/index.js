@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { themeProvider } from '../helpers/theme'
+import { themeProvider } from '../../helpers/theme'
 
 const containerWidth = props => {
 	let themeWidth = themeProvider(props).containerWidth
@@ -18,10 +18,6 @@ const containerWidth = props => {
 }
 
 const Container = styled.div`
-	display: flex;
-	flex-direction: ${props => props.direction};
-	justify-content: ${props => props.justify};
-	align-items: ${props => props.align};
   border: 0px dashed red;
   margin: 0 ${props => props.center ? 'auto' : '0'};
   box-sizing: border-box;
@@ -29,10 +25,7 @@ const Container = styled.div`
 `;
 
 Container.defaultProps = {
-	direction: 'row',
-	justify: 'center',
-	align: 'center',
-	center: 1,
+	center: true,
 }
 
 export default Container

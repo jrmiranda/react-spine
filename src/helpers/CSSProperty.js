@@ -10,7 +10,6 @@ const CSSProperty = (props, breakpoint, propertyName, property, defaultValue) =>
 		value = props[propertyName]
 	}
 
-	//console.log(breakpoint, `${property}: ${value};`)
 	return `${property}: ${value};`
 }
 

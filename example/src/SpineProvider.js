@@ -1,9 +1,9 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from 'react-substrate'
-import defaultTheme from '../defaultTheme'
+import { GlobalStyle } from 'react-spine'
+import defaultTheme from '../../src/defaultTheme'
 
-const SubstrateProvider = ({theme, children, useGlobal}) => {
+const SpineProvider = ({theme, children, useGlobal}) => {
 	let resultTheme = { ...defaultTheme, ...theme }
 
 	return (
@@ -14,8 +14,8 @@ const SubstrateProvider = ({theme, children, useGlobal}) => {
 	);
 }
 
-SubstrateProvider.defaultProps = {
+SpineProvider.defaultProps = {
 	useGlobal: true
 };
 
-export default SubstrateProvider;
+export default SpineProvider;
