@@ -1,7 +1,7 @@
 export { default as GlobalStyle } from './components/GlobalStyle'
 
 export { default as Grid } from './components/Grid'
-export { default as Layout } from './components/Layout'
+/* export { default as Layout } from './components/Layout' */
 export { default as Container } from './components/Container'
 
 export { default as Alert } from './components/Alert'
