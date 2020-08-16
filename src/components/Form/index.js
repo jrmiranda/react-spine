@@ -3,34 +3,14 @@ import {
 	StyledInput,
 	StyledTextarea,
 	StyledSelect,
+	StyledMark,
 	Label,
 	FieldWrapper,
 	FieldContainer,
 	FieldInfo,
 	HelperText,
-	ErrorText
+	ErrorText,
 } from './styles'
-
-const Input = props => {
-	return (
-		<StyledInput {...props} />
-	);
-}
-
-/* const Field_ = ({ name, label, help, error, children, ...rest }) => {
-	return (
-		<FieldWrapper>
-			<FieldContainer>
-				{label && <Label htmlFor={name}>{label}</Label>}
-				<Input name={name} id={name} error={!!error} {...rest} />
-			</FieldContainer>
-			<FieldInfo>
-				{help && <HelperText>{help}</HelperText>}
-				{error && <ErrorText>{error}</ErrorText>}
-			</FieldInfo>
-		</FieldWrapper>
-	);
-} */
 
 const Field = ({ children, help, error }) => {
 	return (
@@ -46,29 +26,29 @@ const Field = ({ children, help, error }) => {
 	);
 }
 
-const TextField = ({name, label, help, error, ...props}) => {
+const TextField = ({name, id, label, help, error, ...props}) => {
 	return (
 		<Field help={help} error={error}>
-			{label && <Label htmlFor={name}>{label}</Label>}
-			<Input name={name} {...props} />
+			{label && <Label htmlFor={id || name}>{label}</Label>}
+			<StyledInput name={name} id={id || name} {...props} />
 		</Field>
 	);
 }
 
-const TextArea = ({name, label, help, error, ...props}) => {
+const TextArea = ({name, id, label, help, error, ...props}) => {
 	return (
 		<Field help={help} error={error}>
-			{label && <Label htmlFor={name}>{label}</Label>}
-			<StyledTextarea name={name} {...props} />
+			{label && <Label htmlFor={id || name}>{label}</Label>}
+			<StyledTextarea name={name} id={id || name} {...props} />
 		</Field>
 	);
 }
 
-const SelectField = ({name, label, options, help, error, ...props}) => {
+const SelectField = ({name, id, label, options, help, error, ...props}) => {
 	return (
 		<Field help={help} error={error}>
-			{label && <Label htmlFor={name}>{label}</Label>}
-			<StyledSelect name={name} {...props}>
+			{label && <Label htmlFor={id || name}>{label}</Label>}
+			<StyledSelect name={name} id={id || name} {...props}>
 				{options.map(option => (
 					<option
 						value={option.value}
@@ -83,19 +63,28 @@ const SelectField = ({name, label, options, help, error, ...props}) => {
 	);
 }
 
-const Radio = ({name, children, ...props}) => {
+const CheckField = ({label, children, help, error}) => {
 	return (
-		<Label htmlFor={name}>
-			<Input type="radio" name={name} {...props} />
+		<Field help={help} error={error}>
+			{label && <Label>{label}</Label>}
+			{children}
+		</Field>
+	);
+}
+
+const Radio = ({name, id, label, children, ...props}) => {
+	return (
+		<Label htmlFor={id || name} mark>
+			<StyledMark type="radio" name={name} id={id || name} {...props} />
 			{children}
 		</Label>
 	);
 }
 
-export const Checkbox = ({name, children, ...props}) => {
+export const Checkbox = ({name, id, label, children, ...props}) => {
 	return (
-		<Label htmlFor={name}>
-			<Input type="checkbox" name={name} {...props} />
+		<Label htmlFor={id || name} mark>
+			<StyledMark type="checkbox" name={name} id={id || name} {...props} />
 			{children}
 		</Label>
 	);
@@ -128,12 +117,13 @@ const Form = ({children, onSubmit, ...props}) => {
 	);
 }
 
-Form.Input = Input
+Form.Input = StyledInput
 Form.Label = Label
 Form.Field = Field
 Form.TextField = TextField
 Form.TextArea = TextArea
 Form.SelectField = SelectField
+Form.CheckField = CheckField
 Form.Radio = Radio
 Form.Checkbox = Checkbox
 

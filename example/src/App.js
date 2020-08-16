@@ -9,7 +9,7 @@ import {
 } from 'react-spine'
 
 const { Row, Col } = Grid
-const { Field, TextField, TextArea, SelectField, Radio, Checkbox } = Form
+const { Field, TextField, TextArea, SelectField, Radio, Checkbox, CheckField } = Form
 
 const customTheme = {
 	spine: {
@@ -75,8 +75,10 @@ const LayoutApp = () => {
 						]}
 					/>
 
-					<Radio name="sex">Male</Radio>
-					<Radio name="sex">Female</Radio>
+					<CheckField label="Sex">
+						<Radio name="sex" id="sex_m">Male</Radio>
+						<Radio name="sex" id="sex_f">Female</Radio>
+					</CheckField>
 
 					<Checkbox name="remember">Remember</Checkbox>
 

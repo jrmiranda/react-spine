@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 // Inputs
-export const StyledInput = styled.input`
+const defaultInputStyle = css`
 	display: block;
 	background: white;
 	margin: 6px 0;
@@ -10,54 +10,45 @@ export const StyledInput = styled.input`
 	border: 1px solid #ddd;
 	border-radius: 5px;
 	outline: none;
+	resize: none;
+	font-family: inherit;
 
 	&:focus {
 		box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.1);
 		border-color: #ccc;
 	}
+`;
+
+export const StyledInput = styled.input`
+	${defaultInputStyle}
 `;
 
 export const StyledTextarea = styled.textarea`
-	display: block;
-	background: white;
-	margin: 6px 0;
-	padding: 8px 10px;
-	font-size: 15px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	outline: none;
-	resize: none;
-	font-family: inherit;
-
-	&:focus {
-		box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.1);
-		border-color: #ccc;
-	}
+	${defaultInputStyle}
 `;
 
 export const StyledSelect = styled.select`
-	display: block;
-	background: white;
-	margin: 6px 0;
-	padding: 8px 10px;
-	font-size: 15px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	outline: none;
-	resize: none;
-	font-family: inherit;
+	${defaultInputStyle}
+	/* appearance:none; */
+`;
 
-	&:focus {
-		box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.1);
-		border-color: #ccc;
-	}
+export const StyledMark = styled.input`
+	display: block;
+	margin: 6px 5px 6px 0;
+	background: white;
+	border: 1px solid #ddd;
 `;
 
 // Label
 export const Label = styled.label`
-	font-weight: 600;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	font-weight: ${props => props.mark ? 500 : 600};
 	font-size: 14px;
 	color: #333;
+	user-select: none;
 `;
 
 // Helpers
