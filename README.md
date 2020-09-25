@@ -1,5 +1,9 @@
 # react-spine
 
+<p align="center">
+  <img src="spine.svg">
+</p>
+
 **React Spine** is a simple responsive grid system for ReactJs made with flexbox and Styled Components. It works with simple or complex layouts.
 
 
