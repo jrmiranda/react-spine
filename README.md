@@ -1,5 +1,3 @@
-# react-spine
-
 <p align="center">
   <img src="spine.svg">
 </p>
