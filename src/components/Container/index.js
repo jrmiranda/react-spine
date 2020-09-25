@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { themeProvider } from '../../helpers/theme'
+import PropTypes from 'prop-types'
 
 const containerWidth = props => {
 	let themeWidth = themeProvider(props).containerWidth
@@ -26,6 +27,11 @@ const Container = styled.div`
 
 Container.defaultProps = {
 	center: true,
+}
+
+Container.propTypes = {
+	fluid: PropTypes.bool,
+	full: PropTypes.bool
 }
 
 export default Container

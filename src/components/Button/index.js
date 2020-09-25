@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { colorVariant } from '../../helpers/colors'
 import Flex from '../Flex'
+import PropTypes from 'prop-types'
+import { CSSPropertyType } from '../../helpers/types'
 
 const Button = styled.button`
 	background: ${props => props.outline ? 'transparent' : colorVariant(props)};
@@ -33,6 +35,18 @@ const Group = styled(Flex)`
 		}
 	}
 `;
+
+
+Button.propTypes = {
+	outline: PropTypes.bool
+}
+
+Group.propTypes = {
+	direction: CSSPropertyType,
+	justify: CSSPropertyType,
+	align: CSSPropertyType,
+	wrap: CSSPropertyType,
+}
 
 Button.Group = Group
 

@@ -4,12 +4,12 @@ import {
 	GlobalStyle,
 	Grid,
 	Container,
-	Button,
-	Form
+	//Button,
+	//Form
 } from 'react-spine'
 
 const { Row, Col } = Grid
-const { Field, TextField, TextArea, SelectField, Radio, Checkbox, CheckField } = Form
+//const { TextField, TextArea, SelectField, Radio, Checkbox, CheckField } = Form
 
 const customTheme = {
 	spine: {
@@ -21,14 +21,14 @@ const LayoutApp = () => {
 	return (
 		<ThemeProvider theme={customTheme}>
 			<GlobalStyle/>
-			<Container>
+			{/* <Container>
 				<Button.Group justify="center">
 					<Button outline as="a" href="/">Outline as Link</Button>
 					<Button outline>Outline</Button>
 					<Button>Primary</Button>
 				</Button.Group>
-			</Container>
-
+			</Container> */}
+{/* 
 			<Container>
 				<Form onSubmit={(data) => console.log(data)}>
 					<TextField
@@ -87,7 +87,7 @@ const LayoutApp = () => {
 					</Button.Group>
 				</Form>
 			</Container>
-
+ */}
 			<Container fluid>
 				<Row grow="0" justify={{md: 'flex-end'}}>
 					<Col sm="12" md="1/4" lg="6">

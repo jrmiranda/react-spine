@@ -3,6 +3,7 @@ import mediaQueries from '../../helpers/mediaQueries'
 import CSSProperty from '../../helpers/CSSProperty'
 import { breakpointsKeys } from '../../helpers/theme'
 import { columnSize, gridGap } from './helpers'
+import { columnSizeType, CSSPropertyType } from '../../helpers/types'
 
 const Col = styled.div`
   padding: 0;
@@ -17,6 +18,15 @@ const Col = styled.div`
 		${CSSProperty(props, breakpoint, 'order', 'order', 0)}
 	`)}
 `;
+
+Col.propTypes = {
+	sm: columnSizeType,
+	md: columnSizeType,
+	lg: columnSizeType,
+	order: CSSPropertyType,
+	grow: CSSPropertyType,
+	shrink: CSSPropertyType,
+}
 
 const Row = styled.div`
   width: 100%;
@@ -44,6 +54,13 @@ const Row = styled.div`
 		`)}
 	}
 `;
+
+Row.propTypes = {
+	direction: CSSPropertyType,
+	justify: CSSPropertyType,
+	align: CSSPropertyType,
+	wrap: CSSPropertyType,
+}
 
 const Grid = {
 	Row,

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import mediaQueries from '../../helpers/mediaQueries'
 import CSSProperty from '../../helpers/CSSProperty'
 import { breakpointsKeys } from '../../helpers/theme'
+import { CSSPropertyType } from '../../helpers/types'
 
 const Flex = styled.div`
 	width: 100%;
@@ -14,5 +15,12 @@ const Flex = styled.div`
 		${CSSProperty(props, breakpoint, 'wrap', 'flex-wrap', 'wrap')}
 	`)}
 `;
+
+Flex.propTypes = {
+	direction: CSSPropertyType,
+	justify: CSSPropertyType,
+	align: CSSPropertyType,
+	wrap: CSSPropertyType,
+}
 
 export default Flex
